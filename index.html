@@ -46,30 +46,36 @@
 
         <div class="titleportfolio">WORK</div>
 
+        <div class="filters">
+            <button data-filter="all">All</button>
+            <button data-filter="commercial">Commercials</button>
+            <button data-filter="film">Film</button>
+        </div>
+
         <div class="portfolioitems">
-            <div class="item">
+            <div class="item" data-category="commercial">
                 <img class="foto" src="images/royal.jpg" alt="">
                 <div class="hover"><p>Royal Canin</p></div>
             </div>
-            <div class="item">
+            <div class="item" data-category="commercial">
                 <img class="foto" src="images/ritex.jpg" alt="">
                 <div class="hover"><p>Ritex</p></div>
             </div>
-            <div class="item">
+            <div class="item" data-category="film">
                 <img class="foto" src="images/kbw.webp" alt="">
-                <<div class="hover"><p>Kinderboekenweek</p></div>
+                <div class="hover"><p>Kinderboekenweek</p></div>
             </div>
-            <div class="item">
+            <div class="item" data-category="film">
                 <img class="foto" src="images/royal.jpg" alt="">
                 <div class="hover"><p>Royal Canin</p></div>
             </div>
-            <div class="item">
+            <div class="item" data-category="commercial">
                 <img class="foto" src="images/ritex.jpg" alt="">
                 <div class="hover"><p>Ritex</p></div>
             </div>
-            <div class="item">
+            <div class="item" data-category="film">
                 <img class="foto" src="images/kbw.webp" alt="">
-                <<div class="hover"><p>Kinderboekenweek</p></div>
+                <div class="hover"><p>Kinderboekenweek</p></div>
             </div>
         </div>
     </section>
@@ -82,7 +88,28 @@
             landing.classList.toggle('active');
             toggle.classList.toggle('active');
         });
+
+        const buttons = document.querySelectorAll(".filters button");
+        const items = document.querySelectorAll(".item");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+
+        const filter = button.dataset.filter;
+
+        items.forEach(item => {
+
+            if (filter === "all" || item.dataset.category === filter) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+
+        });
+    });
+});
     </script>
+    
 
 </body>
 </html>

@@ -4,6 +4,10 @@
     font-family: Arial;
 }
 
+:root {
+  --secondary-color:rgba(0, 128, 128, 1);
+}
+
 .landing {
     position: relative;
     right: 0px;
@@ -12,6 +16,7 @@
     display: flex;
     align-items: center;
     transition: 0.3s;
+    z-index: 5;
 }
 
 .landing.active {
@@ -33,7 +38,7 @@
     font-weight: bold;
     font-size: 20px;
     letter-spacing: 5px;
-
+    cursor: pointer;
 }
 
 .toggle {
@@ -49,6 +54,7 @@
     width: 25px;
     height: 25px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .toggle.active {
@@ -153,11 +159,16 @@
     right: 0;
     width: 300px;
     height: 100vh;
-    z-index: -10;
+    z-index: 2;
     color: black;
     text-align: right;
     justify-content: center;
     align-items: center;
+}
+
+.menu li:hover {
+    color: var(--secondary-color);
+    cursor: pointer;
 }
 
 .menu li {
@@ -174,12 +185,40 @@
 .titleportfolio {
     width: 100%;
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    font-size: 20px;
-    /*font-weight: bold; */
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: bold;
     letter-spacing: 1px;
-    
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.filters button {
+    background-color: white;
+    border: 3px solid;
+    border-color: rgb(207, 207, 207);
+    color: grey;
+    padding: 15px 25px;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    border-color: var(--secondary-color);
+    color: rgba(0, 128, 128, 1);
+}
+
+.filters button:active {
+    border-color: black;
+    color: black;
 }
 
 .portfolioitems {
@@ -193,6 +232,7 @@
     height: 400px;
     width: 100%;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .item .foto {
@@ -229,24 +269,22 @@
     bottom: 30px;
     left: 20px;
     transform: translateY(30px);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: color 0.2s, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .hover:hover p {
     transform: translateY(0);
     opacity: 1;
-
 }
 
 .hover p:hover {
-    color: rgba(0, 128, 128, 1);
+    color: var(--secondary-color);
 }
 
 @media (max-width: 1400px) {
   .item {height: 300px;
   }
 }
-
 
 @media (max-width: 1200px) {
   .item {height: 250px;
